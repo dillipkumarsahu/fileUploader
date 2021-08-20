@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>File Upload</title>
+</head>
+<body>
+	<br>
+
+	<input type="file" name="file" id="file" accept=".docx, .pdf">
+
+	<!-- <input type="file" name="file" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf"> -->
+	<br><br>
+	
+
+	<!-- to display upload file -->
+	<embed src="" type="application/pdf" id="display-pdf" width="50%" height="500px"></embed>
+	
+	<script>
+		var file_data;
+	    var files = document.getElementById("file");
+
+	    files.onchange = function(){
+	        var file = this.files[0];
+	        var freader = new FileReader();
+	        freader.readAsDataURL(file);
+	        freader.onload = function(event){
+	            file_data = event.currentTarget.result;
+	            console.log(file_data);
+
+	            document.getElementById("display-pdf").src = file_data;
+	        }	
+	    }
+
+
+
+
+
+
+	</script>
+</body>
+</html>
